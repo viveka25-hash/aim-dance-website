@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aim Dance & Acting Academy | Gopalganj, Bihar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #ff0033; /* Crimson Red */
+            --secondary-color: #1a1a1a; /* Dark Grey/Black */
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111;
+        }
+
+        .dark-bg h2 {
+            color: #fff;
+        }
+
+        h2 span { color: var(--primary-color); }
+
+        /* --- Navbar --- */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li { margin-left: 30px; }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--primary-color); }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .offer-box {
+            background: rgba(255, 0, 51, 0.2);
+            border: 1px dashed var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .contact-info-hero {
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+
+        /* --- Trainer Section --- */
+        .trainer-flex {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .trainer-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid var(--secondary-color);
+        }
+
+        .trainer-img img { width: 100%; display: block; filter: grayscale(30%); }
+
+        .trainer-info { flex: 1; min-width: 300px; }
+
+        /* --- Classes Section --- */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .class-card {
+            background: var(--secondary-color);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .class-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .class-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .class-card ul {
+            list-style: none;
+            margin-top: 15px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .class-card li { margin-bottom: 8px; }
+
+        .class-card li i { font-size: 0.9rem; margin-right: 10px; }
+
+        /* --- Gallery --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* --- Watch Us Section --- */
+        .watch-title {
+            color: var(--primary-color);
+            letter-spacing: 4px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .watch-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .unmute-btn {
+            padding: 10px 18px;
+            background: rgba(255, 0, 51, 0.95);
+            border: 1px solid rgba(255, 0, 51, 0.9);
+            color: #fff;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .unmute-btn:hover {
+            background: rgba(255, 0, 51, 0.8);
+        }
+
+        .youtube-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .youtube-video {
+            width: 800px;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 18px;
+            box-shadow: 0 16px 35px rgba(0,0,0,0.55);
+            overflow: hidden;
+            background: #000;
+        }
+
+        .youtube-video iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            padding-bottom: 56.25%; /* 16:9 */
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 16px 35px rgba(0,0,0,0.55);
+            background: #000;
+        }
+
+        @media (max-width: 768px) {
+            .youtube-wrapper { margin-bottom: 30px; }
+            .video-wrapper { max-width: 100%; }
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #000;
+        }
+
+        /* --- Batch Timings --- */
+        .timing-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .timing-box {
+            background: #111;
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .timing-box h4 { color: var(--primary-color); margin-bottom: 10px; }
+
+        /* --- Footer & Social --- */
+        footer {
+            background: #0a0a0a;
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover { color: var(--primary-color); }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            filter: grayscale(100%) invert(90%);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide for mobile toggle implementation */
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #000;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 15px 0; }
+            .menu-toggle { display: block; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+        /* --- Floating WhatsApp Button --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        }
+
+        /* --- Floating Social Stack (Instagram, Facebook, WhatsApp) --- */
+        .floating-socials {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 10000;
+            align-items: center;
+        }
+
+        .floating-socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            text-decoration: none;
+        }
+
+        .floating-socials a:hover { transform: translateY(-4px); }
+
+        .floating-socials a.social { width: 48px; height: 48px; font-size: 18px; }
+        .floating-socials a.whatsapp { width: 60px; height: 60px; font-size: 24px; }
+
+        .floating-socials a.facebook { background: #3b5998; }
+        .floating-socials a.instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); }
+        .floating-socials a.whatsapp { background: #25D366; }
+        .dev-credit a{
+color:white;
+text-decoration:none;
+}
+
+.dev-credit span{
+color:#007BFF;
+font-weight:600;
+}
+
+.dev-credit a:hover span{
+text-decoration:underline;
+}
+/* Logo ko circle me laane ke liye */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px; /* Logo aur text ke beech ki doori */
+}
+
+.circle-logo {
+    width: 50px;       /* Aap size chhota-bada kar sakte hain */
+    height: 50px;      /* Width aur Height barabar honi chahiye circle ke liye */
+    border-radius: 50%; /* Isse image circle ban jayegi */
+    object-fit: cover;  /* Isse image stretch nahi hogi */
+    border: 2px solid var(--primary-color); /* Side me red border ke liye */
+    background-color: #fff; /* Agar logo transparent hai toh piche white background */
+}
+  </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo-container">
+    <img src="image/logoaim.jpeg" alt="Aim Academy Logo" class="circle-logo">
+    Aim Dance & Acting Academy
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#trainer">About Trainer</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container hero-content">
+            <h1>Aim Dance & Acting Academy</h1>
+            <p>New Batch Admission Open</p>
+            <div class="offer-box">
+                <h3>Limited Seats – Hurry Up!</h3>
+                <p>Free Admission + 17% Discount on Tuition Fee</p>
+            </div>
+            <div class="contact-info-hero">
+                <p><i class="fas fa-phone"></i> +91 70705 28617</p>
+                <p><i class="fas fa-envelope"></i> pandeyabhishek7070@gmail.com</p>
+            </div>
+            <a href="https://wa.me/917070528617" class="btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Join Now on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <section id="trainer" class="section-padding">
+        <div class="container">
+            <h2>About <span>The Trainer</span></h2>
+            <div class="trainer-flex">
+                <div class="trainer-img">
+                    <img src="image/trainer.jpeg" alt="Trainer">
+                </div>
+                <div class="trainer-info">
+                    <h3>Abhishek Pandey</h3>
+                    <p style="color: var(--primary-color); font-weight: bold; margin-bottom: 15px;">Lead Choreographer & Acting Coach</p>
+                    <p>With over 10 years of experience in the performing arts industry, Abhishek Pandey has trained hundreds of students in Gopalganj. His unique teaching methodology focuses on core strength, emotional expression, and stage presence. He believes that everyone has a performer inside them—they just need the right aim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="classes" class="section-padding dark-bg" style="background: #050505;">
+        <div class="container">
+            <h2>Our <span>Programs</span></h2>
+            <div class="class-grid">
+                <div class="class-card">
+                    <i class="fas fa-shoe-prints"></i>
+                    <h3>Dance Classes</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Bollywood & Hip-Hop</li>
+                        <li><i class="fas fa-check"></i> Contemporary</li>
+                        <li><i class="fas fa-check"></i> Freestyle</li>
+                        <li><i class="fas fa-check"></i> Wedding Choreography</li>
+                    </ul>
+                </div>
+                <div class="class-card">
+                    <i class="fas fa-mask"></i>
+                    <h3>Acting Classes</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Camera Acting</li>
+                        <li><i class="fas fa-check"></i> Dialogue Delivery</li>
+                        <li><i class="fas fa-check"></i> Audition Preparation</li>
+                        <li><i class="fas fa-check"></i> Personality Development</li>
+                    </ul>
+                </div>
+                <div class="class-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Zumba Fitness</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Fun Workout Sessions</li>
+                        <li><i class="fas fa-check"></i> Fat Burn Training</li>
+                        <li><i class="fas fa-check"></i> Bollywood Zumba</li>
+                        <li><i class="fas fa-check"></i> Cardio Fitness</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2>Why <span>Choose Us</span></h2>
+            <div class="class-grid">
+                <div class="class-card" style="padding: 20px;">
+                    <h4>Professional Training</h4>
+                    <p>Learn from industry experts with certified techniques.</p>
+                </div>
+                <div class="class-card" style="padding: 20px;">
+                    <h4>Stage Opportunities</h4>
+                    <p>Regular performances in local shows and competitions.</p>
+                </div>
+                <div class="class-card" style="padding: 20px;">
+                    <h4>Personal Attention</h4>
+                    <p>Limited batch sizes ensuring every student improves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding dark-bg" style="background: #050505;">
+        <div class="container">
+            <h2>Batch <span>Timings</span></h2>
+            <div class="timing-container">
+                <div class="timing-box">
+                    <h4>Morning</h4>
+                    <p>6:30 AM – 7:45 AM</p>
+                </div>
+                <div class="timing-box">
+                    <h4>Afternoon</h4>
+                    <p>3:00 PM – 4:15 PM</p>
+                </div>
+                <div class="timing-box">
+                    <h4>Evening</h4>
+                    <p>4:30 PM – 5:45 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2>Our <span>Gallery</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="/gallery/gallery1.jpeg" alt="Dance 1"></div>
+                <div class="gallery-item"><img src="/gallery/gallery2.jpeg" alt="Acting 1"></div>
+                <div class="gallery-item"><img src="/gallery/gallery3.jpeg" alt="Dance 2"></div>
+                <div class="gallery-item"><img src="/gallery/gallery4.jpeg" alt="Zumba"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="watch" class="section-padding dark-bg" style="background: #050505;">
+        <div class="container">
+            <div class="watch-header">
+                <h2 class="watch-title">WATCH US IN ACTION</h2>
+                
+            </div>
+
+            <div class="youtube-wrapper">
+                <div class="youtube-video">
+                    <iframe id="youtubePlayer" src="https://www.youtube.com/embed/FdOB63eQGXQ?autoplay=1&mute=1&enablejsapi=1&rel=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <video id="localVideo1" controls autoplay muted loop playsinline preload="auto">
+                        <source src="vid2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="video-wrapper">
+                    <video id="localVideo2" controls autoplay muted loop playsinline preload="auto">
+                        <source src="vid3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2>Contact <span>Us</span></h2>
+            <div class="footer-grid">
+                <div>
+                    <h3>Get In Touch</h3>
+                    <p style="margin: 20px 0;"><i class="fas fa-map-marker-alt"></i> Minz stadium road, Shahi complex, 4th floor, LIC office</p>
+                    <p style="margin: 10px 0;"><a href="tel:+917070528617" style="color: #fff; text-decoration:none;"><i class="fas fa-phone"></i> +91 70705 28617</a></p>
+                    <p style="margin: 10px 0;"><a href="mailto:pandeyabhishek7070@gmail.com" style="color: #fff; text-decoration:none;"><i class="fas fa-envelope"></i> pandeyabhishek7070@gmail.com</a></p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps?q=Minz+stadium+road+Shahi+complex+4th+floor+LIC+office&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2026 Aim Dance & Acting Academy. All Rights Reserved.</p>
+                <p class="dev-credit"><strong><a href="https://vvg-woad.vercel.app" target="_blank">
+                    Designed & Developed by <span>VG Developer</span></a></strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Autoplay muted videos + unmute on user request
+        const unmuteBtn = document.getElementById('unmuteBtn');
+        const localVideos = [
+            document.getElementById('localVideo1'),
+            document.getElementById('localVideo2'),
+        ];
+
+        function setLocalMute(muted) {
+            localVideos.forEach(v => {
+                if (!v) return;
+                v.muted = muted;
+                v.controls = true;
+            });
+        }
+
+        let ytPlayer;
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('youtubePlayer', {
+                events: {
+                    onReady: () => {
+                        if (ytPlayer && typeof ytPlayer.mute === 'function') {
+                            ytPlayer.mute();
+                        }
+                    }
+                }
+            });
+        }
+
+        function toggleMute() {
+            const isMuted = localVideos[0] && localVideos[0].muted;
+            const newMuteState = !isMuted;
+            setLocalMute(newMuteState);
+
+            if (ytPlayer && typeof ytPlayer[newMuteState ? 'mute' : 'unMute'] === 'function') {
+                ytPlayer[newMuteState ? 'mute' : 'unMute']();
+            }
+
+            unmuteBtn.textContent = newMuteState ? 'Unmute' : 'Mute';
+        }
+
+        unmuteBtn.addEventListener('click', () => {
+            toggleMute();
+        });
+    </script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- Floating Socials (Instagram, Facebook, WhatsApp) -->
+    <div class="floating-socials" aria-label="Social links">
+        <a href="https://www.instagram.com/aimdance05?igsh=OHMza253OXh2ZWM2" class="instagram social" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/share/16zpbQAuVp/" class="facebook social" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://wa.me/917070528617?text=Hello%20I%20want%20to%20know%20about%20batches" class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+</body>
+</html>
